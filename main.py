@@ -3,7 +3,7 @@ from time import sleep
 
 # Creating Window and add atributes
 root = Tk()
-root.geometry('550x250')
+root.geometry('550x290')
 root.title('Engineering Economics Calculator')
 root.configure(bg='grey')
 root.resizable(0, 0)
@@ -12,15 +12,15 @@ root.resizable(0, 0)
 WinTitle = Label(root, text="Enter Variables:", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=1, column=2)
 
 # interest entry box
-interest = Label(root, text="i: ", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=2, column=1)
+interest = Label(root, text="i:", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=2, column=1, padx=10)
 e_interest = Entry(root, width=10, borderwidth=3)
-e_interest.grid(row=2, column=2)
+e_interest.grid(row=2, column=2, pady=20)
 interestsign = Label(root, text="%      ", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=2, column=3)
 
 # period entry box
 period = Label(root, text="N: ", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=2, column=4)
 e_period = Entry(root, width=10, borderwidth=3)
-e_period.grid(row=2, column=5)
+e_period.grid(row=2, column=5, pady=20)
 l_period = Label(root, text="Years", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=2, column=6)
 
 # result box
@@ -32,17 +32,19 @@ l_result.grid(row=5, column=7)
 l_error = Label(root, text=" ", font='Helvetica 9 bold', bg='grey', fg='white')
 l_error.grid(row=11, column=8)
 
-
+#error handling for result box 1 
 def reset_label(new_label):
     l_result.destroy()
     ne = Label(root, text=new_label, bg='grey', fg='white', font='Helvetica 11 bold')
     ne.grid(row=5, column=7)
 
 
+#error handling for result box 2
 def reset_label2(new_label2):
     l_error.destroy()
     ne = Label(root, text=new_label2, bg='grey', fg='white', font='Helvetica 9 bold')
     ne.grid(row=11, column=7)
+
 
 
 def fp_calc():
@@ -172,49 +174,43 @@ def i_effective():
             reset_label2(label)
 
 
-################################### First Row #############################################
-# cheap Space lol
-space = Label(root, text=' ', bg='grey', fg='white')
-space.grid(row=3, rowspan=1, column=2)
+################################### First Row Buttons #############################################
+
 
 # creating Compound Amount Factor button
 fp = Button(root, text='(F/P, i, N)', bg='slate grey', fg='white', command=fp_calc)
 fp.grid(row=4, rowspan=1, column=2)
 
-# creating Compound Amount Factor button
+# creating Sinking Fund Factor button
 af = Button(root, text='(A/F, i, N)', bg='slate grey', fg='white', command=af_calc)
-af.grid(row=5, rowspan=1, column=2)
+af.grid(row=5, rowspan=1, column=2, pady=10)
 
-# creating Compound Amount Factor button
+# creating Capital Recovery Factor button
 ap = Button(root, text='(A/P, i, N)', bg='slate grey', fg='white', command=ap_calc)
 ap.grid(row=7, rowspan=1, column=2)
 
-################################### Second Row #############################################
-# cheap Space lol
-space2 = Label(root, text=' ', bg='grey', fg='white')
-space2.grid(row=3, rowspan=1, column=5)
-# creating Compound Amount Factor button
+################################### Second Row Buttons #############################################
+
+# creating Present Worth Factor button
 fp = Button(root, text='(P/F, i, N)', bg='slate grey', fg='white', command=pf_calc)
 fp.grid(row=4, rowspan=1, column=5)
 
-# creating Compound Amount Factor button
+# creating Uniform Series Compound Factor button
 af = Button(root, text='(F/A, i, N)', bg='slate grey', fg='white', command=fa_calc)
 af.grid(row=5, rowspan=1, column=5)
 
-# creating Compound Amount Factor button
+# creating Series Present Worth Factor button
 ap = Button(root, text='(P/A, i, N)', bg='slate grey', fg='white', command=pa_calc)
 ap.grid(row=7, rowspan=1, column=5)
 
-# cheap Space lol
-space = Label(root, text=' ', bg='grey', fg='white')
-space.grid(row=8, rowspan=1, column=2)
 
+################################### Second Calculator #############################################
 # interest s entry box
 interest_s = Label(root, text="i\u209B:", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=9, column=1)
 e_interest_s = Entry(root, width=10, borderwidth=3)
-e_interest_s.grid(row=9, column=2)
+e_interest_s.grid(row=9, column=2, pady=20)
 
-# result box
+# interest result box
 ie_result = Entry(root, width=10, borderwidth=3)
 ie_result.grid(row=10, column=8)
 l_ie_result = Label(root, text="i\u2091 =", bg='grey', fg='white', font='Helvetica 11 bold')
@@ -222,17 +218,13 @@ l_ie_result.grid(row=10, column=7)
 l_ie_interest_sign = Label(root, text="%", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=10, column=9)
 
 # period entry box
-period_m = Label(root, text="r:", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=9, column=4)
+period_m = Label(root, text="n:", font='Helvetica 11 bold', bg='grey', fg='white').grid(row=9, column=4)
 e_period_m = Entry(root, width=10, borderwidth=3)
 e_period_m.grid(row=9, column=5)
 
-# cheap Space lol
-space = Label(root, text=' ', bg='grey', fg='white')
-space.grid(row=10, rowspan=1, column=2)
-
 # interest e  button
-interest_e = Button(root, text='i\u2091= (1+(r/n))\u207F', font='Helvetica 10 bold', bg='slate grey',
-                    fg='white', command=i_effective)
-interest_e.grid(row=11, rowspan=1, column=3)
+interest_e = Button(root, text='i\u2091= (1+(r/n))\u207F', font='Helvetica 10 bold', bg='slate grey', fg='white', command=i_effective)
+interest_e.grid(row=10, column=3)
 
+#loop program
 root.mainloop()
