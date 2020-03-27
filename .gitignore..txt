@@ -1,0 +1,3 @@
+EconEngCalc.spec
+__pycache__/
+build/
