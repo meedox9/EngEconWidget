@@ -13,3 +13,12 @@ Engineering Economics has a lot of tedious and repetative formulas that are hard
 **Availbale Functions**
 
 ![Functions](https://user-images.githubusercontent.com/57116563/80336455-55a0f200-8825-11ea-8d7a-84c416cc9d0f.PNG)
+
+
+**To use**
+
+Download dist/EconEngWidget.exe
+
+*or*
+
+Clone the repo and compile main.py
