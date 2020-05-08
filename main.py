@@ -3,7 +3,7 @@ from time import sleep
 
 # Creating Window and add atributes
 root = Tk()
-root.geometry('550x290')
+root.geometry('550x320')
 root.title('Engineering Economics Calculator')
 root.configure(bg='grey')
 root.resizable(0, 0)
